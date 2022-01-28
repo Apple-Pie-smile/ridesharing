@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改ride</title>
+</head>
+<body>
+<h1>修改owner信息, has sharer</h1>
+
+<div class="container">
+    <div class="col-md-4 col-md-offset-4">
+      <form class='form-rideOwnerEdit_hasS' action="{% url 'rideOwnerEdit_hasS' id %}" method="post">
+
+          {% csrf_token %}
+          <li><a href="/ownerView/">返回上一页</a></li>
+          <div class="form-group">
+              {{ ride_form.number_of_total_passengers.label_tag }}
+              {{ ride_form.number_of_total_passengers }}
+          </div>
+          <div class="form-group">
+            {{ ride_form.vehicle_type.label_tag }}
+            {{ ride_form.vehicle_type }}
+          </div>
+
+          <button type="reset" class="btn btn-default pull-left">重置</button>
+          <button type="submit" class="btn btn-primary pull-right">提交</button>
+
+      </form>
+    </div>
+</div> <!-- /container -->
+
+
+</body>
+</html>

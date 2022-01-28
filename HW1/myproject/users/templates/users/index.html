@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<h1>首页</h1>
+    {% if request.session.is_login %}
+    <h1>你好,{{ request.session.user_name }}！欢迎回来！</h1>
+    <li><a href="/logout/">登出</a ></li>
+        {% if request.session.is_driver %}
+        <li><a href="/driverUpdate/">编辑司机资料</a ></li>
+        <li><a href="/driverSearch/">司机接单</a ></li>
+        {% else %}
+        <li><a href="/driver/">注册成为司机</a ></li>
+        {% endif %}
+    <li><a href="/rideRequest/">发起订单，成为owner</a ></li>
+    <li><a href="/sharerSearch/">加入拼单，成为sharer</a ></li>
+    <li><a href="/ownerView/">查看我的owner订单</a ></li>
+    <li><a href="/sharerView/">查看我的sharer订单</a ></li>
+    <li><a href="/driverView/">查看我的driver订单</a ></li>
+    {% else %}
+    <h1>你尚未登录，只能访问公开内容！</h1>
+    <li><a href="/login/">登录</a ></li>
+    <li><a href="/register/">注册</a ></li>
+    
+    {% endif %}
+
+</body>
+</html>

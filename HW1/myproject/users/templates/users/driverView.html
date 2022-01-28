@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>driver订单</title>
+</head>
+<body>
+<h1>driver订单</h1>
+
+<div class="container">
+
+    {% csrf_token %}
+    <li><a href="/index/">返回上一页</a></li>
+        {% for ride in ride_list %}
+            <article class="media content-section">
+            <div>
+                <p class="article-content">arrival time: {{ ride.arrival_time_early }}</p>
+                <p class="article-content">destination : {{ ride.destination }}</p>
+                <a href="{% url 'driverDetail' ride.id %}">查看订单详情</a>
+                <a href="{% url 'driverCancel' ride.id %}">取消当前订单</a>
+                <a href="{% url 'driverComplete' ride.id %}">完成当前订单</a>
+            </div>
+            </article>
+        {% empty %} <li>您现在没有订单消息</li>
+        {% endfor %}
+</div> <!-- /container -->
+
+
+</body>
+</html>

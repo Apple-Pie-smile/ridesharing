@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>车辆编辑</title>
+</head>
+<body>
+<h1>车辆编辑页面</h1>
+
+<div class="container">
+    <div class="col-md-4 col-md-offset-4">
+      <form class='form-driverUpdate' action="/driverUpdate/" method="post">
+
+          {% csrf_token %}
+
+          <h2 class="text-center">欢迎编辑</h2>
+          <div class="form-group">
+              {{ driver_form.vehicle_type.label_tag }}
+              {{ driver_form.vehicle_type }}
+          </div>
+          <div class="form-group">
+              {{ driver_form.license_number.label_tag }}
+              {{ driver_form.license_number }}
+          </div>
+          <div class="form-group">
+              {{ driver_form.max_number_of_passengers.label_tag }}
+              {{ driver_form.max_number_of_passengers }}
+          </div>
+          <div class="form-group">
+              {{ driver_form.special_request.label_tag }}
+              {{ driver_form.special_request }}
+          </div>
+
+          <button type="reset" class="btn btn-default pull-left">重置</button>
+          <button type="submit" class="btn btn-primary pull-right">提交</button>
+
+      </form>
+    </div>
+</div> <!-- /container -->
+
+
+</body>
+</html>

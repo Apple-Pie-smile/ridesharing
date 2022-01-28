@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>owner订单</title>
+</head>
+<body>
+<h1>owner订单</h1>
+
+<div class="container">
+
+    {% csrf_token %}
+    <article class="media content-section">
+    <div>
+        <p class="article-content">owner : {{ ride.owner }}</p>
+        <p class="article-content">arrival time: {{ ride.arrival_time_early }}</p>
+        <p class="article-content">destination : {{ ride.destination }}</p>
+        <p class="article-content">{{ ride.current_passenger_num }} people </p>  
+        {% for sharer in sharers %}
+        <p class="article-content">sharer : {{ sharer.name }}</p>
+        {% empty %} <li>订单没有sharer</li>
+        {% endfor %}
+        {% if ride.is_confirmed %}
+            <p class="article-content">driver : {{ ride.driver }}</p>
+            <p class="article-content">car type: {{ ride.vehicle_type }}</p>
+        {% endif %}
+        <li><a href="/ownerView/">返回上一页</a></li>
+    </div>
+    </article>
+</div> <!-- /container -->
+
+
+</body>
+</html>

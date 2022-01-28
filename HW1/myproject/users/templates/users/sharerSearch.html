@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sharer填写表单，为了搜索ridelist</title>
+</head>
+<body>
+<h1>sharer填写表单，为了搜索ridelist</h1>
+
+<div class="container">
+    <div class="col-md-4 col-md-offset-4">
+      <form class='form-sharerSearch' action="/sharerSearch/" method="post">
+
+          {% csrf_token %}
+
+          <h2 class="text-center">欢迎成为sharer</h2>
+          <div class="form-group">
+              {{ sharer_form.destination.label_tag }}
+              {{ sharer_form.destination}}
+          </div>
+          <div class="form-group">
+              {{ sharer_form.arrival_early.label_tag }}
+              {{ sharer_form.arrival_early}}
+          </div>
+          <div class="form-group">
+              {{ sharer_form.arrival_late.label_tag }}
+              {{ sharer_form.arrival_late }}
+          </div>
+          <div class="form-group">
+            {{ sharer_form.number_of_passengers.label_tag }}
+            {{ sharer_form.number_of_passengers }}
+          </div>
+
+          <button type="reset" class="btn btn-default pull-left">重置</button>
+          <button type="submit" class="btn btn-primary pull-right">搜索</button>
+
+      </form>
+    </div>
+</div> <!-- /container -->
+
+
+</body>
+</html>

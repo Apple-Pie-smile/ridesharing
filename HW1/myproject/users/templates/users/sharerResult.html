@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ridelist结果</title>
+</head>
+<body>
+<h1>ridelist结果</h1>
+
+<div class="container">
+
+    {% csrf_token %}
+        {% for ride in ride_list %}
+            <article class="media content-section">
+            <div>
+                <p class="article-content">owner : {{ ride.owner }}</p>
+                <p class="article-content">arrival time: {{ ride.arrival_time_early }}</p>
+                <p class="article-content">destination : {{ ride.destination }}</p>
+                <p class="article-content">{{ ride.current_passenger_num }} people </p>
+                <a href="{% url 'sharerConfirm' ride.id number_of_passengers %}">I want to join this ride</a>    
+            </div>
+            </article>
+        {% endfor %}
+</div> <!-- /container -->
+
+
+</body>
+</html>
